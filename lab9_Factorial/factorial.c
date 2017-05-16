@@ -47,6 +47,7 @@ void multiply(Node **head, int n) {
 void printFactorial(Node *head) {
     Node *temp = head;
     
+    
     int first = 1;
     while(temp) {
         if(first) {
