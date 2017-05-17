@@ -42,13 +42,43 @@ void multiply(Node **head, int n) {
         last = temp;
         temp = temp -> next;
     }
+    
+    shift(head);
+}
+
+void shift(Node **head) {
+    Node *temp = *head;
+    Node *last = NULL;
+    
+    while(temp) {
+        if(temp -> data / 1000 > 0) {
+            if(last) {
+                last -> data = (last -> data) + ((temp -> data) / 1000);
+            } else {
+                addFirst(head, (temp -> data) / 1000);
+            }
+            temp -> data = (temp -> data) % 1000;
+        }
+        
+        last = temp;
+        temp = temp -> next;
+    }
+    
+    temp = *head;
+    while(temp) {
+        if(temp -> data / 1000 > 0) {
+            shift(head);
+        }
+        
+        temp = temp -> next;
+    }
 }
 
 void printFactorial(Node *head) {
     Node *temp = head;
     
+    int first = 1, count = 0;
     
-    int first = 1;
     while(temp) {
         if(first) {
             printf("%d", temp -> data);
@@ -68,6 +98,12 @@ void printFactorial(Node *head) {
         }
         
         first = 0;
+        count += 3;
+        
+        if(count >= 43) {
+            count = 0;
+            printf("\n");
+        }
     }
     
     printf("\n");
