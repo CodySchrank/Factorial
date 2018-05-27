@@ -18,7 +18,15 @@ int main(int argc, const char * argv[]) {
     
     start = clock();
     
-    Node *f = factorial(15); //correct
+    printf("This program calculates a factorial up to (9999)\n");
+    
+    printf("Please enter a number: ");
+    
+    int n = 0;
+    
+    scanf("%d", &n);
+    
+    Node *f = factorial(n);
     
     printFactorial(f);
     
@@ -26,33 +34,6 @@ int main(int argc, const char * argv[]) {
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     
     printf("\nTime Taken To Compute: %f\n\n", cpu_time_used);
-    
-    /******/
-    
-    start = clock();
-    
-    f = factorial(111); //correct
-    
-    printFactorial(f);
-    
-    end = clock();
-    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    
-    printf("\nTime Taken To Compute: %f\n\n", cpu_time_used);
-    
-    /******/
-    
-    start = clock();
-    
-    f = factorial(9999); //correct
-    
-    printFactorial(f);
-    
-    end = clock();
-    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    
-    printf("\nTime Taken To Compute: %f\n\n", cpu_time_used);
-    
     
     return 0;
 }
